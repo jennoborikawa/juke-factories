@@ -1,7 +1,7 @@
 /* global juke */
 'use strict';
 
-juke.controller('AlbumCtrl', function ($scope, $http, $rootScope, $log, StatsFactory, AlbumFactory) {
+juke.controller('AlbumCtrl', function ($scope, $http, $rootScope, $log, StatsFactory, AlbumFactory,PlayerFactory) {
   AlbumFactory.fetchAll()
     .then(function(albums){
       $scope.albums = albums 
@@ -20,17 +20,17 @@ juke.controller('AlbumCtrl', function ($scope, $http, $rootScope, $log, StatsFac
   // main toggle
   $scope.toggle = function (song) {
     if ($scope.playing && song === $scope.currentSong) {
-      $rootScope.$broadcast('pause');
+      // $rootScope.$broadcast('pause');
     } else {
-      $rootScope.$broadcast('play', song);
+      // $rootScope.$broadcast('play', song);
     }
   };
 
   // incoming events (from Player, toggle, or skip)
-  $scope.$on('pause', pause);
-  $scope.$on('play', play);
-  $scope.$on('next', next);
-  $scope.$on('prev', prev);
+  // $scope.$on('pause', pause);
+  // $scope.$on('play', play);
+  // $scope.$on('next', next);
+  // $scope.$on('prev', prev);
 
   // functionality
   function pause () {
